@@ -1,0 +1,340 @@
+@media screen and (max-width: 375px) {
+    body, html {
+        background-color: #2e2d2d;
+        color: #ffffff;
+        padding: 0;
+        margin: 0;
+        font-family: sans-serif;
+        font-weight: 700;
+    }
+    
+    .nav-bar {
+        position: sticky;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 3.5em;
+        top: 0;
+        z-index: 1000;
+        width: 91%;
+        background-color: rgba(46, 45, 45, 0);
+        height: 2em;
+        padding: 1em;
+        transition: background-color 0.3s ease;
+    }
+
+    .logo{
+        text-align: center;
+        user-select: none;
+        font-size: 2em;
+        margin: 0;
+        color: rgb(255, 253, 253);
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .logo-div {
+        width: 30%;
+        margin-top: 0;
+    }
+
+    .cart-and-search {
+        margin-right: 0;
+        float: right;
+        width: 20%;
+        display: flex;
+        justify-content: center;
+        align-items: right;
+    }
+
+    .cart-and-search img {
+        width: 2em;
+        margin-left: 10px;
+        cursor: pointer;
+    }
+
+    .hamburger-icon {
+        float: left;
+        display: flex;
+        flex-direction: column;
+        cursor: pointer;
+        width: 10%;
+    }
+
+    .main-menu {
+        margin-top: 2em;
+        display: none;
+        position: absolute;
+        left: 0;
+        background-color: #454545;
+        padding: 10px;
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+    }
+
+    .main-menu li a {
+        color: #fff;
+        text-decoration: none;
+        display: block;
+        padding: 10px;
+        transition: background-color 0.3s ease;
+    }
+
+    .main-menu li a:hover {
+        background-color: #373737;
+    }
+
+    .hamburger-icon span {
+        width: 25px;
+        height: 3px;
+        background-color: #864444;
+        margin: 3px 0;
+    }
+
+    .products-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .product-link {
+        text-decoration: none;
+        width: 90%;
+    }
+
+    .product {
+        position: relative;
+        width: 100%;
+        height: 20em;
+        background-color: #585555;
+        margin-top: 1.5em;
+        border-radius: 5px;
+        padding: 5px;
+        box-shadow: 0 3px 4px rgb(92, 85, 85);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product img {
+        width: 100%;
+        height: 100%;
+        border-radius: 5px;
+        object-fit: cover;
+    }
+
+    .product:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 8px rgb(92, 85, 85);
+    }
+
+    .description {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        right: 10px;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: #fff;
+        padding: 10px;
+        border-radius: 5px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        text-align: center;
+    }
+
+    .product:hover .description {
+        opacity: 1;
+    }
+
+    .product:hover .order-and-add-to-cart-button button {
+        display: block;
+    }
+
+    header {
+        padding-top: 10em;
+        text-align: center;
+        height: 20em;
+        background-image: url('IMG-20240813-WA0059.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        margin: 0;
+    }
+
+    .welcome {
+        font-size: 30px;
+        font-weight: bold;
+    }
+
+    header button {
+        background-color: rgba(46, 45, 45, 0.9);
+        height: 3em;
+        width: 8em;
+        border-radius: 50px;
+        font-size: larger;
+        color: aliceblue;
+        border: none;
+        transition: transform 0.3s ease-in;
+    }
+
+    header button:hover {
+        background-color: #585555;
+        cursor: pointer;
+        transform: translateX(3px);
+    }
+
+    footer {
+        width: 91%;
+        background-color: #454545;
+        margin-top: 1.5em;
+        bottom: 0;
+        height: 20em;
+        padding: 1em;
+    }
+
+    footer p {
+        text-align: center;
+        margin-top: 2px;
+    }
+
+    footer p a {
+        color: white;
+        text-decoration: none;
+    }
+
+    footer form {
+        margin-left: 2em;
+    }
+
+    footer form input {
+        background-color: #454545;
+        outline: none;
+        border-bottom-color: #ffffff;
+        border-right: none;
+        border-left: none;
+        border-top: none;
+    }
+
+    footer form button {
+        background-color: #454545;
+        border-radius: 50px;
+        border: none;
+        cursor: pointer;
+        color: white;
+    }
+
+    footer form button:hover {
+        background-color: #585555;
+    }
+
+    footer div {
+        margin-top: 1em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+ 
+    footer div img {
+        margin-left: 10px;
+    }
+
+    /*For order page*/
+    .order-div {
+        display: flex;
+        flex-direction: column;
+        margin: auto;
+        margin-top: 2em;
+        padding: 5px;
+        width: 90%;
+        height: 30em;
+        background-color: rgb(83, 78, 78);
+        border-radius: 5px;
+        color: rgb(243, 226, 226);
+    }
+
+    .order-div .order-page-discription {
+        height: 30%;
+        margin-top: 5px;
+        margin-bottom: 0;
+    }
+
+    .order-div .product-image {
+        height: 60%;
+        margin-top: 5px;
+    }
+
+    .order-div .product-image .the-image {
+        height: 100%;
+        width: 100%;
+        border-radius: 5px;
+    }
+
+    .order-and-add-to-cart-buttons {
+        margin-top: 5px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .order-and-add-to-cart-buttons button {
+        border: none;
+        outline: none;
+        border-radius: 5px;
+        cursor: pointer;
+        height: 2em;
+        background-color: rgba(46, 45, 45, 0.6);
+        font-weight: 900;
+        color: white;
+    }
+
+    /*for products page*/
+    .product-paragraph {
+        font-size: 40px;
+        margin: 0;
+    }
+
+    /*for contact page*/
+    #contact-form {
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        width: 70%;
+        justify-content: space-between;
+    }
+
+    #contact-form input:not(#main-field) {
+        color: white;
+        margin-top: 1em;
+        border-radius: 5px;
+        background-color: rgb(85, 76, 76);
+        outline: none;
+        border-right: none;
+        border-left: none;
+        border-top: none;
+        border-bottom-color: white;
+        height: 3em;
+    }
+
+    #contact-form #main-field {
+        color: white;
+        margin-top: 1em;
+        border-radius: 5px;
+        background-color: rgb(85, 76, 76);
+        outline: none;
+        border: none;
+        height: 10em;
+    }
+
+    input[type='submit'] {
+        cursor: pointer;
+    }
+
+    .contact-us-paragraph{
+        font: 2em sans-serif;
+        margin: 0;
+    }
+
+    /*About us page*/
+    .about-us-paragraph {
+        text-align: center;
+        font-weight: 900;
+    }
+}

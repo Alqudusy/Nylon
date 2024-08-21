@@ -1,0 +1,123 @@
+[debug] [2024-08-20T00:05:11.574Z] ----------------------------------------------------------------------
+[debug] [2024-08-20T00:05:11.749Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Alqudusy\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2024-08-20T00:05:11.750Z] CLI Version:   13.15.2
+[debug] [2024-08-20T00:05:11.751Z] Platform:      win32
+[debug] [2024-08-20T00:05:11.751Z] Node Version:  v22.1.0
+[debug] [2024-08-20T00:05:11.761Z] Time:          Tue Aug 20 2024 01:05:11 GMT+0100 (West Africa Standard Time)
+[debug] [2024-08-20T00:05:11.762Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-08-20T00:05:11.906Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-08-20T00:05:11.907Z] > authorizing via signed-in user (yusufabdulqudus02@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\Alqudusy\Desktop\nylon website
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2024-08-20T00:06:03.234Z] > refreshing access token with scopes: []
+[debug] [2024-08-20T00:06:03.239Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2024-08-20T00:06:03.239Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-08-20T00:09:35.593Z] *** [apiv2] error from fetch(https://www.googleapis.com/oauth2/v3/token, {"headers":{},"method":"POST","body":{"_overheadLength":545,"_valueLength":212,"_valuesToMeasure":[],"writable":false,"readable":true,"dataSize":0,"maxDataSize":2097152,"pauseStreams":true,"_released":true,"_streams":[],"_currentStream":null,"_insideLoop":false,"_pendingNext":false,"_boundary":"--------------------------201799191555285577533936","_events":{},"_eventsCount":1}}): FetchError: request to https://www.googleapis.com/oauth2/v3/token failed, reason: read ECONNRESET
+[debug] [2024-08-20T00:09:35.594Z] Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+[debug] [2024-08-20T00:09:40.667Z] Error: Timed out.
+    at Timeout._onTimeout (C:\Users\Alqudusy\AppData\Roaming\npm\node_modules\firebase-tools\lib\utils.js:268:49)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2024-08-20T00:11:16.967Z] ----------------------------------------------------------------------
+[debug] [2024-08-20T00:11:16.976Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Alqudusy\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2024-08-20T00:11:16.977Z] CLI Version:   13.15.2
+[debug] [2024-08-20T00:11:16.977Z] Platform:      win32
+[debug] [2024-08-20T00:11:16.977Z] Node Version:  v22.1.0
+[debug] [2024-08-20T00:11:16.979Z] Time:          Tue Aug 20 2024 01:11:16 GMT+0100 (West Africa Standard Time)
+[debug] [2024-08-20T00:11:16.979Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-08-20T00:11:17.009Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-08-20T00:11:17.010Z] > authorizing via signed-in user (yusufabdulqudus02@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\Alqudusy\Desktop\nylon website
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2024-08-20T00:12:11.678Z] > refreshing access token with scopes: []
+[debug] [2024-08-20T00:12:11.682Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2024-08-20T00:12:11.682Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-08-20T00:12:54.564Z] *** [apiv2] error from fetch(https://www.googleapis.com/oauth2/v3/token, {"headers":{},"method":"POST","body":{"_overheadLength":545,"_valueLength":212,"_valuesToMeasure":[],"writable":false,"readable":true,"dataSize":0,"maxDataSize":2097152,"pauseStreams":true,"_released":true,"_streams":[],"_currentStream":null,"_insideLoop":false,"_pendingNext":false,"_boundary":"--------------------------596099765747299808422446","_events":{},"_eventsCount":1}}): FetchError: request to https://www.googleapis.com/oauth2/v3/token failed, reason: socket hang up
+[debug] [2024-08-20T00:12:54.565Z] Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+[debug] [2024-08-20T00:12:59.588Z] Error: Timed out.
+    at Timeout._onTimeout (C:\Users\Alqudusy\AppData\Roaming\npm\node_modules\firebase-tools\lib\utils.js:268:49)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[error] 
+[error] Error: An unexpected error has occurred.
+[debug] [2024-08-20T00:16:44.056Z] ----------------------------------------------------------------------
+[debug] [2024-08-20T00:16:44.150Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Alqudusy\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2024-08-20T00:16:44.151Z] CLI Version:   13.15.2
+[debug] [2024-08-20T00:16:44.151Z] Platform:      win32
+[debug] [2024-08-20T00:16:44.152Z] Node Version:  v22.1.0
+[debug] [2024-08-20T00:16:44.162Z] Time:          Tue Aug 20 2024 01:16:44 GMT+0100 (West Africa Standard Time)
+[debug] [2024-08-20T00:16:44.163Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-08-20T00:16:44.311Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-08-20T00:16:44.312Z] > authorizing via signed-in user (yusufabdulqudus02@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\Alqudusy\Desktop\nylon website
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2024-08-20T00:17:00.730Z] > refreshing access token with scopes: []
+[debug] [2024-08-20T00:17:00.734Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2024-08-20T00:17:00.734Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2024-08-20T00:17:22.322Z] *** [apiv2] error from fetch(https://www.googleapis.com/oauth2/v3/token, {"headers":{},"method":"POST","body":{"_overheadLength":545,"_valueLength":212,"_valuesToMeasure":[],"writable":false,"readable":true,"dataSize":0,"maxDataSize":2097152,"pauseStreams":true,"_released":true,"_streams":[],"_currentStream":null,"_insideLoop":false,"_pendingNext":false,"_boundary":"--------------------------249372044950545509369579","_events":{},"_eventsCount":1}}): FetchError: request to https://www.googleapis.com/oauth2/v3/token failed, reason: connect ETIMEDOUT 142.250.201.138:443
+[debug] [2024-08-20T00:17:22.323Z] Authentication Error: Your credentials are no longer valid. Please run firebase login --reauth
+
+For CI servers and headless environments, generate a new token with firebase login:ci
+[debug] [2024-08-20T00:17:27.387Z] Error: Timed out.
+    at Timeout._onTimeout (C:\Users\Alqudusy\AppData\Roaming\npm\node_modules\firebase-tools\lib\utils.js:268:49)
+    at listOnTimeout (node:internal/timers:573:17)
+    at process.processTimers (node:internal/timers:514:7)
+[error] 
+[error] Error: An unexpected error has occurred.

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Nylon | Buy your quality and affordable Nylons</title>
+</head>
+<body>
+    <nav class="nav-bar" id="nav-bar">
+        <div class="hamburger-icon" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="logo-div" id="logo-div">
+            <p class="logo">NYLON</p>
+        </div>
+        <div class="cart-and-search" id="cart-and-search">
+            <img src="pngwing.com (6).png" alt="Cart" width="20" id="search-icon">
+            <img src="pngwing.com (5).png" alt="Search" width="50">
+        </div>
+        <ul class="main-menu" id="main-menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="contactus.html">Contact Us</a></li>
+        </ul>
+    </nav>
+    <div class="order-div">
+        <div class="product-image"><img src="images/nylon2.jpg" width="50" class="the-image" id="order-page-image"></div>
+        <div><p id="order-page-description">Lorem ipsum dolor sit amet, 
+            consectetur adipisicing elit. Quod velit iusto tempora quasi eos in omnis officiis
+             eligendi corporis sit qui explicabo laboriosam ea unde quis voluptas,
+             quidem facere ab.</p>
+        </div>
+        <div class="order-and-add-to-cart-buttons">
+            <button>Order Now</button>
+            <button>Add to Cart</button>
+        </div>
+    </div>
+    <footer>
+        <p style="text-align: center;">Contact Us: <a href="mailto:yr499677@gmail.com">yr499677@gmail.com</a></p>
+        <p>Phone number: <a href="tel:+2348068392660">08068392660</a></p>
+        <form action="#" id="subscribe-form">
+            <input type="email" placeholder="Subscribe to our mailing list"/>
+            <button type="submit">Subscribe</button>
+        </form>
+        <div>
+            <a href="wa.me/2348068392660"><img src="pngwing.com (2).png" alt="whatsApp" width="30"></a>
+            <a href="#"><img src="pngwing.com (1).png" alt="Facebook" width="30"></a>
+        </div>
+        <div>
+            <a href="#"><img src="pngwing.com (3).png" alt="Gpay" width="40"></a>
+            <a href="#"><img src="pngwing.com (4).png" alt="visa" width="40"></a>
+        </div>
+        <p>&copy;2024 Alqudusy. All right reserved.</p>
+        <p>powered by <a href="#">TechifyDev</a></p>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const productImage = sessionStorage.getItem('selectedProductImage')
+            const productDescription = sessionStorage.getItem('selectedProductDescription');
+        
+            if (productImage && productDescription ) {
+                document.getElementById('order-page-image').src = productImage;
+                document.getElementById('order-page-description').innerText = productDescription;
+            }
+        });        
+    </script>
+</body>
+</html>
