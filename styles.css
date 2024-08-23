@@ -1,7 +1,7 @@
 @media screen and (max-width: 375px) {
     body, html {
-        background-color: #2e2d2d;
-        color: #ffffff;
+        background-color: #b6afaf;
+        color: #dad0d0;
         padding: 0;
         margin: 0;
         font-family: sans-serif;
@@ -16,7 +16,7 @@
         top: 0;
         z-index: 1000;
         width: 91%;
-        background-color: rgba(46, 45, 45, 0);
+        background-color: 007bff;
         height: 2em;
         padding: 1em;
         transition: background-color 0.3s ease;
@@ -64,7 +64,7 @@
         display: none;
         position: absolute;
         left: 0;
-        background-color: #454545;
+        background-color: #807e7e;
         padding: 10px;
         border-bottom-left-radius: 5px;
         border-bottom-right-radius: 5px;
@@ -79,13 +79,13 @@
     }
 
     .main-menu li a:hover {
-        background-color: #373737;
+        background-color: #c0bfbf;
     }
 
     .hamburger-icon span {
         width: 25px;
         height: 3px;
-        background-color: #864444;
+        background-color: #949191;
         margin: 3px 0;
     }
 
@@ -105,7 +105,7 @@
         position: relative;
         width: 100%;
         height: 20em;
-        background-color: #585555;
+        background-color: #f9f9f9;
         margin-top: 1.5em;
         border-radius: 5px;
         padding: 5px;
@@ -181,7 +181,7 @@
 
     footer {
         width: 91%;
-        background-color: #454545;
+        background-color: #777373;
         margin-top: 1.5em;
         bottom: 0;
         height: 20em;
@@ -203,9 +203,9 @@
     }
 
     footer form input {
-        background-color: #454545;
+        background-color: #a09c9c;
         outline: none;
-        border-bottom-color: #ffffff;
+        border-bottom-color: #ffeaea;
         border-right: none;
         border-left: none;
         border-top: none;
@@ -216,7 +216,7 @@
         border-radius: 50px;
         border: none;
         cursor: pointer;
-        color: white;
+        color: rgb(175, 169, 169);
     }
 
     footer form button:hover {
@@ -244,9 +244,9 @@
         padding: 5px;
         width: 90%;
         height: 30em;
-        background-color: rgb(83, 78, 78);
+        background-color: rgb(170, 169, 169);
         border-radius: 5px;
-        color: rgb(243, 226, 226);
+        color: rgb(39, 39, 39);
     }
 
     .order-div .order-page-discription {
@@ -279,9 +279,9 @@
         border-radius: 5px;
         cursor: pointer;
         height: 2em;
-        background-color: rgba(46, 45, 45, 0.6);
+        background-color: rgba(180, 178, 178, 0.6);
         font-weight: 900;
-        color: white;
+        color: rgb(124, 118, 118);
     }
 
     /*for products page*/
