@@ -101,7 +101,7 @@ if (document.querySelector('.minus-btn') && document.querySelector('.plus-btn'))
     document.querySelector('.minus-btn').addEventListener('click', () => {
         let quantityElement = document.getElementById('quantity-value');
         let quantityInput = Number(quantityElement.value.replace(/[^0-9.]/g, ''));
-        let itemPrice = Number(document.getElementById('item-price').innerText.replace(/[^0-9.]/g, ''));
+        let itemPrice = Number(document.getElementById('product-price').innerText.replace(/[^0-9.]/g, ''));
         let subTotalElement = document.getElementById('sub-total');
         
         if (quantityInput > 1) {
@@ -119,7 +119,7 @@ if (document.querySelector('.minus-btn') && document.querySelector('.plus-btn'))
     document.querySelector('.plus-btn').addEventListener('click', () => {
         let quantityElement = document.getElementById('quantity-value');
         let quantityInput = Number(quantityElement.value.replace(/[^0-9.]/g, ''));
-        let itemPrice = Number(document.getElementById('item-price').innerText.replace(/[^0-9.]/g, ''));
+        let itemPrice = Number(document.getElementById('product-price').innerText.replace(/[^0-9.]/g, ''));
         let subTotalElement = document.getElementById('sub-total');
         
         if (quantityInput >= 1) {
