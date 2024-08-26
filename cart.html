@@ -27,18 +27,26 @@
             <li><a href="contactus.html">Contact Us</a></li>
         </ul>
     </nav>
-    <div class="order-div">
-        <div class="product-image"><img src="images/nylon2.jpg" width="50" class="the-image" id="order-page-image"></div>
-        <div class="description-div">
-            <p id="order-page-description">Lorem ipsum dolor sit amet, 
-            consectetur adipisicing elit. Quod velit iusto tempora quasi eos in omnis officiis
-             eligendi corporis sit qui explicabo laboriosam ea unde quis voluptas,
-             quidem facere ab.</p>
+    <div class="cart-item">
+        <div class="item-details">
+            <div class="main-div">
+            <img src="images/nylon1.jpg" alt="Product 1">
+            <h2 class="cart-page-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam corrupti enim velit? Recusandae ipsa ad itaque excepturi. Quisquam quod unde dolore dolorem, reprehenderit reiciendis omnis veritatis obcaecati asperiores, itaque vel.</h2>
+            </div>
+            <div class="quantity-selector">
+                <button class="minus-btn">-</button>
+                <input type="text" value="5" id="quantity-value">
+                <button class="plus-btn">+</button>
+            </div>
+            <div class="item-price" id="product-price">Price: $1.65</div>
         </div>
-        <p class="product-price"></p>
-        <div class="order-and-add-to-cart-buttons">
-            <button>Order Now</button>
-            <button class="add-to-cart-btn">Add to Cart</button>
+        <div class="cart-summary">
+            <div class="subtotal">
+                <span>SUBTOTAL:</span>
+                <span id="sub-total">$1.65</span>
+            </div>
+            <p>shipping, taxes, and discount code calculated at check out</p>
+            <button class="check-out-btn">Check out</button>
         </div>
     </div>
     <footer>
@@ -60,19 +68,5 @@
         <p>powered by <a href="#">TechifyDev</a></p>
     </footer>
     <script src="script.js"></script>
-    <script>
-        window.addEventListener('DOMContentLoaded', () => {
-            const productImage = sessionStorage.getItem('selectedProductImage')
-            const productDescription = sessionStorage.getItem('selectedProductDescription');
-            const productPrice = sessionStorage.getItem('selectedProductPrice');
-
-        
-            if (productImage && productDescription && productPrice ) {
-                document.getElementById('order-page-image').src = productImage;
-                document.getElementById('order-page-description').innerText = productDescription;
-                document.querySelector('.order-div').querySelector('.product-price').innerText = productPrice;
-            }
-        });        
-    </script>
 </body>
 </html>
