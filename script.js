@@ -112,6 +112,44 @@ document.querySelector('#cart-icon').addEventListener('click', () => {
     window.location.href = 'cart.html';
 });
 
+if (document.querySelector('.minus-btn') && document.querySelector('.plus-btn')) {
+    document.querySelector('.minus-btn').addEventListener('click', () => {
+        let quantityElement = document.getElementById('quantity-value');
+        let quantityInput = Number(quantityElement.value.replace(/[^0-9.]/g, ''));
+        let itemPrice = Number(document.getElementById('item-price').innerText.replace(/[^0-9.]/g, ''));
+        let subTotalElement = document.getElementById('sub-total');
+        
+        if (quantityInput > 1) {
+            quantityInput -= 1;
+        } else {
+            quantityInput = 1;
+        }
+    
+        quantityElement.value = quantityInput;
+    
+        let newSubTotal = itemPrice * quantityInput;
+        subTotalElement.innerText = newSubTotal.toFixed(2);
+    });
+    
+    document.querySelector('.plus-btn').addEventListener('click', () => {
+        let quantityElement = document.getElementById('quantity-value');
+        let quantityInput = Number(quantityElement.value.replace(/[^0-9.]/g, ''));
+        let itemPrice = Number(document.getElementById('item-price').innerText.replace(/[^0-9.]/g, ''));
+        let subTotalElement = document.getElementById('sub-total');
+        
+        if (quantityInput >= 1) {
+            quantityInput += 1;
+        } else {
+            quantityInput = 1;
+        }
+    
+        quantityElement.value = quantityInput;
+    
+        let newSubTotal = itemPrice * quantityInput;
+        subTotalElement.innerText = newSubTotal.toFixed(2);
+    });
+}
+
 const cartProducts = [];
 
 if (document.querySelector('.add-to-cart-btn')) {
