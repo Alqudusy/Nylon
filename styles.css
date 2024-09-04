@@ -1,5 +1,5 @@
 @media screen and (max-width: 428px) {
-    body {
+    body, html {
         background-color: #b6afaf;
         color: #666363;
         padding: 0;
