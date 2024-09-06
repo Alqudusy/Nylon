@@ -10,8 +10,8 @@ header {
     box-sizing: border-box;
     padding: 0.5rem;
     display: flex;
-    justify-content: space-between;
-    background-color: blue;
+    justify-content: center;
+    background-color: rgb(4, 62, 221);
 }
 
 main {
@@ -22,6 +22,8 @@ main {
     background-image: url('Untitled-1.png');
     height: 100%;
     box-sizing: border-box;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 main>div {
@@ -44,7 +46,7 @@ main button {
     cursor: pointer;
     border: 0;
     outline: none;
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 nav {
@@ -53,8 +55,9 @@ nav {
     width: 100%;
     box-sizing: border-box;
     padding: 1rem;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0);
     color: white;
+    position: sticky;
 }
 
 nav ul {
