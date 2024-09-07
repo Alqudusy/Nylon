@@ -27,10 +27,19 @@ fetch(productInfo, {
         productPrice.innerText = product.price;
         productPrice.className = 'price';
 
+        const quickVeiwButton = document.createElement('button');
+        quickVeiwButton.textContent = 'Quick veiw'
+        quickVeiwButton.className = "quick-veiw-button";
+
         productDiv.appendChild(productImage);
         productDiv.appendChild(productDescription);
         productDiv.appendChild(productPrice);
+        productDiv.appendChild(quickVeiwButton);
 
         mainDiv.appendChild(productDiv);
     });
+})
+.catch(error => {
+    console.error('Error fetching the products data', error);
+    alert('Please check your internet connetion' + " " + error);
 })

@@ -131,12 +131,88 @@ nav .cart-and-search-div {
 }
 
 .product {
+    position: relative;
     width: 20%;
     height: 30rem;
     display: flex;
     flex-direction: column;
+    cursor: pointer;
+}
+
+.product:hover .quick-veiw-button {
+    opacity: 1;
 }
 
 .product img {
     height: 40%;
+}
+
+.quick-veiw-button {
+    width: 90%;
+    position: absolute;
+    bottom: 295px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 20px;
+    background-color: rgb(7, 35, 112);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.veiw-all-button {
+    margin: 0 auto;
+    padding: 1rem 3rem;
+    border-radius: 10px;
+    border: 0;
+    cursor: pointer;
+    background-color: rgb(7, 35, 112);
+    color: whitesmoke;
+}
+
+.subscribe-form {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgb(7, 35, 112);
+}
+
+#email {
+    width: 30%;
+}
+
+.subscribe-button {
+    width: 10%;
+    border: 0;
+    background-color: rgb(7, 35, 112);
+}
+
+.subscribe-button, #email {
+    padding: 1rem;
+}
+
+footer {
+    display: flex;
+    padding: 5rem;
+    color: whitesmoke;
+    background-color: rgb(7, 35, 112);
+    margin-top: 5rem;
+}
+
+footer a {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+footer div {
+    width: 50%;
+}
+
+footer .form-div {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 0;
 }
