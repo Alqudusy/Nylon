@@ -123,17 +123,20 @@ nav .cart-and-search-div {
 }
 
 .featured-collection-div {
-    padding: 1rem;
+    width: 100%;
     display: flex;
-    flex-wrap: wrap;
-    overflow: hidden;
-    flex-grow: 1;
+    flex-wrap: wrap !important;
     justify-content: space-evenly;
     gap: 1rem;
 }
 
-.featured-collection-div .product {
+.product {
     width: 20%;
+    height: 30rem;
     display: flex;
     flex-direction: column;
+}
+
+.product img {
+    height: 40%;
 }
