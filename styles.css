@@ -3,15 +3,23 @@ html, body {
     height: 100%;
     padding: 0;
     margin: 0;
+    font-family: century Schoolbook;
+    text-align: center;
+}
+
+body>p {
+    text-align: center;
+    font-size: 30px;
 }
 
 header {
     width: 100%;
     box-sizing: border-box;
-    padding: 0.5rem;
+    padding: 0.9rem;
     display: flex;
     justify-content: center;
-    background-color: rgb(4, 62, 221);
+    background-color: rgb(7, 35, 112);
+    color: whitesmoke;
 }
 
 main {
@@ -24,6 +32,7 @@ main {
     box-sizing: border-box;
     background-repeat: no-repeat;
     background-size: cover;
+    color: white;
 }
 
 main>div {
@@ -54,39 +63,55 @@ nav {
     display: flex;
     width: 100%;
     box-sizing: border-box;
-    padding: 1rem;
+    padding: 1rem 0.2rem;
     background-color: rgba(0, 0, 0, 0);
     color: white;
     position: sticky;
 }
 
 nav ul {
-    width: 30%;
+    width: 70%;
     list-style-type: none;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
+    padding: 0;
+    gap: 2px;
+}
+
+li a {
+    font-weight: bold;
+    text-decoration: none;
+    color: whitesmoke;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+li a:hover {
+    border-bottom: 2px solid white;
 }
 
 nav .logo-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40%;
+    width: 20%;
+    padding: 0;
 }
 
 .logo-container .logo-text {
     font-size: 20px;
     transform: scale(2);
     transform-origin: center;
-    white-space: nowrap;
+    white-space: wrap;
     overflow: hidden;
 }
 
 nav .cart-and-search-div {
-    background-color: white;
-    width: 30%;
+    width: 10%;
     padding: 0.5rem;
     display: flex;
+    flex-wrap: wrap;
     justify-content: right;
     gap: 1rem;
 }
@@ -95,4 +120,20 @@ nav .cart-and-search-div {
     width: 2rem;
     height: 2rem;
     margin: 0;
+}
+
+.featured-collection-div {
+    padding: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    flex-grow: 1;
+    justify-content: space-evenly;
+    gap: 1rem;
+}
+
+.featured-collection-div .product {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
 }
