@@ -92,19 +92,8 @@ li a:hover {
 }
 
 nav .logo-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
     width: 20%;
     padding: 0;
-}
-
-.logo-container .logo-text {
-    font-size: 20px;
-    transform: scale(2);
-    transform-origin: center;
-    white-space: wrap;
-    overflow: hidden;
 }
 
 nav .cart-and-search-div {
@@ -139,18 +128,18 @@ nav .cart-and-search-div {
     cursor: pointer;
 }
 
-.product:hover .quick-veiw-button {
+.product:hover .quick-view-button {
     opacity: 1;
 }
 
 .product img {
-    height: 40%;
+    height: 50%;
 }
 
-.quick-veiw-button {
+.quick-view-button {
     width: 90%;
     position: absolute;
-    bottom: 295px;
+    bottom: 270px;
     left: 50%;
     transform: translateX(-50%);
     padding: 10px 20px;
@@ -184,9 +173,13 @@ nav .cart-and-search-div {
 }
 
 .subscribe-button {
-    width: 10%;
+    width: 150px;
     border: 0;
     background-color: rgb(7, 35, 112);
+    border-radius: 5px;
+    color: whitesmoke;
+    cursor: pointer;
+    flex-shrink: 0;
 }
 
 .subscribe-button, #email {
@@ -215,4 +208,19 @@ footer .form-div {
     justify-content: center;
     width: 100%;
     padding: 0;
+}
+
+.form-div #email {
+    border: 0;
+    background-color: rgba(0, 0, 0, 0);
+    border-bottom: 2px solid rgb(170, 170, 170);
+    padding: 0.5rem;
+}
+
+.footer-subscribe-button {
+    background-color: whitesmoke;
+    cursor: pointer;
+    border: 0;
+    border-radius: 5px;
+    margin-left: 5px;
 }
