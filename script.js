@@ -85,7 +85,17 @@ $(function () {
         });
         },
         error: function (xhr, status, error) {
-            alert(status);
+            alert(`Please check your internet connection` + error);
         }
     });
+});
+
+$(window).scroll(function() {
+    console.log($(window).scrollTop());
+    if ($(window).scrollTop() > 900) {
+        $('.nav-bar').addClass('sticky');
+    }
+    if ($(window).scrollTop < 900) {
+        $('.nav-bar').removeClass('sticky');
+    }
 });
