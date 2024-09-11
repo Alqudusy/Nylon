@@ -85,17 +85,48 @@ $(function () {
         });
         },
         error: function (xhr, status, error) {
-            alert(`Please check your internet connection` + error);
+            alert(`Please check your internet connection ${error}`);
         }
     });
 });
 
-$(window).scroll(function() {
-    console.log($(window).scrollTop());
-    if ($(window).scrollTop() > 900) {
-        $('.nav-bar').addClass('sticky');
+$(window).on("scroll", function() {
+    const headerHeight = $("header").outerHeight();
+    const currentScrollY = $(window).scrollTop();
+    const navbar = $(".nav-bar");
+  
+    if (currentScrollY >= headerHeight) {
+      // The header is out of view, make nav sticky
+      navbar.addClass("sticky");
+    } else {
+      // The header is still in view, remove sticky behavior
+      navbar.removeClass("sticky");
     }
-    if ($(window).scrollTop < 900) {
-        $('.nav-bar').removeClass('sticky');
-    }
-});
+  });
+  
+  $('.harmburger-icon').click(function () {
+    $('.overlay').css("display","block");
+  });
+
+  $('.close-menu').click(function () {
+    $('.overlay').css("display", "none");
+  });
+
+  $('.search-icon').click(function () {
+    const $logoContainer = $('.logo-container');
+    const $logoContainerStyle = $logoContainer.attr('style');
+
+    const $menu = $('.main-menu');
+    const $menuStyle = $menu.attr('style');
+
+    const $cartandsearchdiv = $('.cart-and-search-div');
+    const $cartandsearchdivStyle = $cartandsearchdiv.attr('style');
+
+    $('nav-bar').css('height', '6.5rem');
+
+    const $image = $('<img>').attr('src', 'pngwing.com (6).png');
+    $image.attr('style', $logoContainerStyle);
+    $image.attr('width', '60');
+
+    $logoContainer.replaceWith($image);
+  });
