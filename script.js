@@ -123,7 +123,8 @@ function showSearchForm() {
   const originalNavBar = document.querySelector('.nav-bar');
   $('.nav-bar').css('padding', '1rem 0rem 1rem 0rem');
   $('.logo-container').css('width', '10%');
-  $('main').css('margin-top', '-5.8rem')
+  $('main').css('margin-top', '-5.8rem');
+  
   const $logo = $('.logo');
   const $logoStyle = $logo.attr('style');
 
@@ -171,14 +172,11 @@ function showSearchForm() {
   $cartandsearchdiv.replaceWith($cancelButton);
 }
 
-document.querySelector('.cancle-button').addEventListener('click', () => {
-  closeSearchForm();
-});
-
 function closeSearchForm() {
-  $('.nav-bar').replaceWith($originalNavBar);
-  const $searchIcon = $originalNavBar.find('.search-icon');
-  $searchIcon.on('click', () => {
+  $('.nav-bar').replaceWith($originalNavBar.clone(true));
+
+  const $searchIcon = $('.nav-bar .search-icon');
+  $searchIcon.on('click', function () {
     showSearchForm();
   });
 }
