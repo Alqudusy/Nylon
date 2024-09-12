@@ -209,7 +209,7 @@ main {
     border-top: 1px solid rgb(7, 35, 112);
 }
 
-.email {
+#email {
     width: 30%;
 }
 
@@ -399,7 +399,7 @@ footer .form-div {
     margin-top: 2rem;
 }
 
-#email {
+.contact-form #email {
     height: 1rem;
     font-size: 2rem;
 }
