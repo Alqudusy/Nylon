@@ -382,6 +382,10 @@ footer .form-div {
     .contact-form button {
         width: 15% !important;
     }
+
+    section {
+        margin-top: 0 !important;
+    }
 }
 
 @media (max-width: 375px) {
