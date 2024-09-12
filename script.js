@@ -90,6 +90,7 @@ $(function () {
     });
 });
 
+
 $(window).on("scroll", function() {
     const headerHeight = $("header").outerHeight();
     const currentScrollY = $(window).scrollTop();
@@ -102,31 +103,82 @@ $(window).on("scroll", function() {
       // The header is still in view, remove sticky behavior
       navbar.removeClass("sticky");
     }
-  });
+});
   
-  $('.harmburger-icon').click(function () {
-    $('.overlay').css("display","block");
+$('.harmburger-icon').click(function () {
+  $('.overlay').css("display","block");
+});
+
+$('.close-menu').click(function () {
+   $('.overlay').css("display", "none");
+});
+
+const $originalNavBar = $('.nav-bar').clone(true);
+
+$('.search-icon').click(function () {
+  showSearchForm();
+});
+
+function showSearchForm() {
+  const originalNavBar = document.querySelector('.nav-bar');
+  $('.nav-bar').css('padding', '1rem 0rem 1rem 0rem');
+  $('.logo-container').css('width', '10%');
+  $('main').css('margin-top', '-5.8rem')
+  const $logo = $('.logo');
+  const $logoStyle = $logo.attr('style');
+
+  const $menu = $('.main-menu');
+  const $menuStyle = $menu.attr('style');
+
+  const $cartandsearchdiv = $('.cart-and-search-div');
+  const $cartandsearchdivStyle = $cartandsearchdiv.attr('style');
+
+  const $image = $('<img>').attr('src', 'pngwing.com (6).png');
+  $image.attr('style', $logoStyle);
+  $image.attr('width', '30');
+  $image.css('margin-top', '1rem');
+
+  const $searchField = $('<input>').attr('type', 'text');
+  $searchField.attr({
+    'id': 'search-field',
+    'style': $menuStyle,
+    'placeholder': `Search our store`
+  });
+  $searchField.css({
+    'width': '80%',
+    'height': '2rem',
+    'border': '0',
+    'background-color': 'rgba(0, 0, 0, 0)',
+    'margin-top': '0.9rem'
   });
 
-  $('.close-menu').click(function () {
-    $('.overlay').css("display", "none");
+  const $cancelButton = $('<p>').append('&times;');
+  $cancelButton.attr('class', 'cancel-button');
+  $cancelButton.css({
+    'width': '10%',
+    'text-align': 'center',
+    'margin': '0',
+    'font-size': '50px',
+    'cursor': 'pointer'
   });
 
-  $('.search-icon').click(function () {
-    const $logoContainer = $('.logo-container');
-    const $logoContainerStyle = $logoContainer.attr('style');
-
-    const $menu = $('.main-menu');
-    const $menuStyle = $menu.attr('style');
-
-    const $cartandsearchdiv = $('.cart-and-search-div');
-    const $cartandsearchdivStyle = $cartandsearchdiv.attr('style');
-
-    $('nav-bar').css('height', '6.5rem');
-
-    const $image = $('<img>').attr('src', 'pngwing.com (6).png');
-    $image.attr('style', $logoContainerStyle);
-    $image.attr('width', '60');
-
-    $logoContainer.replaceWith($image);
+  $cancelButton.on('click', () => {
+      closeSearchForm();
   });
+
+  $logo.replaceWith($image);
+  $menu.replaceWith($searchField);
+  $cartandsearchdiv.replaceWith($cancelButton);
+}
+
+document.querySelector('.cancle-button').addEventListener('click', () => {
+  closeSearchForm();
+});
+
+function closeSearchForm() {
+  $('.nav-bar').replaceWith($originalNavBar);
+  const $searchIcon = $originalNavBar.find('.search-icon');
+  $searchIcon.on('click', () => {
+    showSearchForm();
+  });
+}

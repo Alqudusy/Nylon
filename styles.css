@@ -230,8 +230,9 @@ main {
 footer {
     padding: 5rem;
     color: whitesmoke;
-    background-color: rgb(7, 35, 112);
+    background-color: rgb(4, 20, 66);
     margin-top: 5rem;
+    text-align: left !important;
 }
 
 footer a {
@@ -267,6 +268,10 @@ footer .form-div {
     border: 0;
     border-radius: 5px;
     margin-left: 5px;
+}
+
+#search-field::placeholder {
+    font-size: 20px;
 }
 
 @media (max-width: 749px) {
