@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nylon | Buy your quality and affordable nylon</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="quick-veiw-page.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
@@ -72,30 +73,16 @@
             </div> -->
         </div>
     </div>
-    <!-- <div class="quick-view-overlay">
-        <div class="quick-view">
-            <img class="selected-product-img" src="https://img.freepik.com/free-vector/blank-t-shirt-plastic-bag-polyethylene-packet-with-handles-grocery-shop_1441-3058.jpg?size=626&ext=jpg&ga=GA1.1.431064424.1722609348&semt=ais_hybrid" alt="cart">
-            <div class="quick-view-info">
-                <p class="close-quick-view">&times;</p>
-                <h2 class="cart-description">Nylon Bag - Durable and lightweight, suitable for all occasions. This bag is perfect for carrying everyday essentials.</h2>
-                <p class="numbers-of-orders">36 orders</p>
-                <p class="quick-veiw-price">$43</p>
-                <button class="add-to-cart-btn">ADD TO CART</button>
-                <button class="buy-now-btn">BUY NOW</button>
-                <button class="view-more-btn">VIEW MORE</button>
-            </div>
-        </div>
-    </div> -->
-    <main class="main-div">
+    <div class="quick-veiw-container">
+        <img class="image">
         <div>
-            <p>WELCOME TO NYLON</p>
-            <button>SHOP NOW</button>
+            <h2 class="quickview-description"></h2>
+            <p class="number-of-orders">36 orders</p>
+            <p class="quick-view-price">Price: $32</p>
+            <button class="add-to-cart-btn">ADD TO CART</button>
+            <button class="buy-now-btn">BUY NOW</button>
         </div>
-    </main>
-    <p>FEATURED PRODUCTS</p>
-    <div class="featured-collection-div">
     </div>
-    <div><button class="veiw-all-button">VIEW ALL</button></div>
     <form class="subscribe-form" id="subscribe-form">
         <h2>SIGN UP AND SAVE</h2>
         <P>Subscribe to get special offers, free giveaways, and once-in-a-lifetime deals.</P>
@@ -126,5 +113,24 @@
         </section>
     </footer>
 <script src="script.js"></script>
+<script>
+    function getQueryParams() {
+        const queryParams = new URLSearchParams(window.location.search);
+        return queryParams;
+    }
+    
+    const queryParams = getQueryParams();
+    const productData = queryParams.get('product');
+    if (productData) {
+        const product = JSON.parse(decodeURIComponent(productData));
+        const $product = JSON.parse(decodeURIComponent(productData));
+        const productImage = document.querySelector('.image');
+        productImage.src = product.image;
+        const productDescription = document.querySelector('.quickview-description');
+        productDescription.innerText = product.description;
+        const productPrice = document.querySelector('.quick-view-price');
+        productPrice.innerText = product.price;
+    }
+</script>
 </body>
 </html>

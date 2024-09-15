@@ -43,51 +43,84 @@
 //     console.error('Error fetching the products data', error);
 //     alert('Please check your internet connetion' + " " + error);
 // });
+const productDetails = [];
 
 $(function () {
-    const productInfo = 'https://api.jsonbin.io/v3/b/66dc7b91e41b4d34e42b9def';
-    const apiKey = '$2a$10$sTKU6rZChswPcKFZFFkmwONolnDcWb7mAogz1feJa.AtX7SMQ68Oi';
+  const productInfo = 'https://api.jsonbin.io/v3/b/66dc7b91e41b4d34e42b9def';
+  const apiKey = '$2a$10$sTKU6rZChswPcKFZFFkmwONolnDcWb7mAogz1feJa.AtX7SMQ68Oi';
 
-    $.ajax({
-        url: productInfo,
-        type: 'get',
-        headers: {
-            'X-Master-Key': apiKey
-        },
-        success:
-        function (response) {
-            const products = response.record;
-            console.log(products);
-            products.forEach(product => {
-            // Select the main container div
-            const $mainDiv = $('.featured-collection-div');
-        
-            // Create product div
-            const $productDiv = $('<div></div>').addClass('product');
-        
-            // Create product image
-            const $productImage = $('<img>').attr('src', product.image).addClass('image');
-        
-            // Create product description
-            const $productDescription = $('<p></p>').text(product.description).addClass('description');
-        
-            // Create product price
-            const $productPrice = $('<p></p>').text(product.price).addClass('price');
-        
-            // Create quick view button
-            const $quickViewButton = $('<button></button>').text('Quick view').addClass('quick-view-button');
-        
-            // Append all elements to the productDiv
-            $productDiv.append($productImage, $productDescription, $productPrice, $quickViewButton);
-        
-            // Append the productDiv to the mainDiv
-            $mainDiv.append($productDiv);
-        });
-        },
-        error: function (xhr, status, error) {
-            alert(`Please check your internet connection ${error}`);
-        }
-    });
+  $.ajax({
+      url: productInfo,
+      type: 'get',
+      headers: {
+          'X-Master-Key': apiKey
+      },
+      success: function (response) {
+          const products = response.record;
+          console.log(products);
+          products.forEach(product => {
+              const $mainDiv = $('.featured-collection-div');
+              
+              // Create product div
+              const $productDiv = $('<div></div>').addClass('product');
+              
+              // Create product image
+              const $productImage = $('<img>').attr('src', product.image).addClass('image');
+              
+              // Create product description
+              const $productDescription = $('<p></p>').text(product.description).addClass('description');
+              
+              // Create product price
+              const $productPrice = $('<p></p>').text(product.price).addClass('price');
+              
+              // Create quick view button
+              const $quickViewButton = $('<button></button>').text('Quick view').addClass('quick-view-button');
+              
+              // Append all elements to the productDiv
+              $productDiv.append($productImage, $productDescription, $productPrice, $quickViewButton);
+              
+              // Append the productDiv to the mainDiv
+              $mainDiv.append($productDiv);
+
+              // Attach click event to the productDiv to log product details
+              $productDiv.on('click', () => {
+                const $quickViewOverlay = $('<div></div>').addClass('quick-view-overlay');
+                const $quickView = $('<div></div>').addClass('quick-view');
+                const $quickViewImage = $('<img>').attr('src', product.image);
+                const $quickViewInfo = $('<div></div>').addClass('quick-view-info');
+                const $closeQuickView = $('<p></p>').append('&times;').addClass('close-quick-view');
+                const $quickViewDescription = $('<h2></h2>').text(product.description).addClass('cart-description');
+                const $numberOfOrders = $('<p></p>').text('36 orders').addClass('numbers-of-orders');
+                const $quickViewprice = $('<p></p>').text(product.price).addClass('quick-view-price');
+                const $addToCartBtn = $('<button></button>').text('ADD TO CART').addClass('add-to-cart-btn');
+                const $buyNowBtn = $('<button></button>').text('BUY NOW').addClass('buy-now-btn');
+                const $viewMoreBtn = $('<button></button>').text('VIEW MORE').addClass('view-more-btn');
+
+                $quickViewInfo.append($closeQuickView, $quickViewDescription, $numberOfOrders, $quickViewprice, $addToCartBtn, $buyNowBtn, $viewMoreBtn);
+                $quickView.append($quickViewImage, $quickViewInfo);
+                $quickViewOverlay.append($quickView);
+                $('body').append($quickViewOverlay);
+                $quickViewOverlay.css('display', 'flex');
+                $closeQuickView.on('click', () => {
+                  $quickViewOverlay.css('display', 'none');
+                });
+                const $productInfo = {
+                  description: product.description,
+                  image: product.image,
+                  price: product.price
+                }
+                const $encodedProductInfo = encodeURIComponent(JSON.stringify($productInfo));
+                $quickViewInfo.on('click', () => {
+                  const url = `quick-view.html?product=${$encodedProductInfo}`;
+                  window.location.href = url;
+                })
+              });
+          });
+      },
+      error: function (xhr, status, error) {
+          alert(`Please check your internet connection ${error}`);
+      }
+  });
 });
 
 
@@ -180,3 +213,21 @@ function closeSearchForm() {
     showSearchForm();
   });
 }
+
+function showCart() {
+  $('.cartOverlay').css('display', 'flex');
+  $('body').css('overflow', 'hidden');
+}
+
+function closeCart() {
+  $('.cartOverlay').css('display', 'none');
+  $('body').css('overflow', '');
+}
+
+$('.cart-icon').on('click', () => {
+  showCart();
+});
+
+$('.close-cart').on('click', () => {
+  closeCart();
+});
