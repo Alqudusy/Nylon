@@ -110,7 +110,7 @@ $(function () {
                   price: product.price
                 }
                 const $encodedProductInfo = encodeURIComponent(JSON.stringify($productInfo));
-                $quickViewInfo.on('click', () => {
+                $viewMoreBtn.on('click', () => {
                   const url = `quick-view.html?product=${$encodedProductInfo}`;
                   window.location.href = url;
                 })
