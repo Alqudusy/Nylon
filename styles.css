@@ -450,6 +450,12 @@ footer .form-div {
     display: none;
 }
 
+.cart-item-container {
+    flex-wrap: wrap;
+    height: 65%;
+    overflow-y: scroll;
+}
+
 .cartSlideBar {
     padding: 1rem 2rem;
     width: 50%;
@@ -567,7 +573,8 @@ footer .form-div {
 }
 
 .selected-product-img {
-    width: 50%;
+    width: 50% !important;
+    height: 100%;
     float: left;
     margin-right: 0.5rem;
 }

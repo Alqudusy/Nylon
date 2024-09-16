@@ -61,32 +61,24 @@ $(function () {
           products.forEach(product => {
               const $mainDiv = $('.featured-collection-div');
               
-              // Create product div
               const $productDiv = $('<div></div>').addClass('product');
               
-              // Create product image
               const $productImage = $('<img>').attr('src', product.image).addClass('image');
               
-              // Create product description
               const $productDescription = $('<p></p>').text(product.description).addClass('description');
               
-              // Create product price
               const $productPrice = $('<p></p>').text(product.price).addClass('price');
               
-              // Create quick view button
               const $quickViewButton = $('<button></button>').text('Quick view').addClass('quick-view-button');
               
-              // Append all elements to the productDiv
               $productDiv.append($productImage, $productDescription, $productPrice, $quickViewButton);
               
-              // Append the productDiv to the mainDiv
               $mainDiv.append($productDiv);
 
-              // Attach click event to the productDiv to log product details
               $productDiv.on('click', () => {
                 const $quickViewOverlay = $('<div></div>').addClass('quick-view-overlay');
                 const $quickView = $('<div></div>').addClass('quick-view');
-                const $quickViewImage = $('<img>').attr('src', product.image);
+                const $quickViewImage = $('<img>').attr('src', product.image).addClass('selected-product-img');
                 const $quickViewInfo = $('<div></div>').addClass('quick-view-info');
                 const $closeQuickView = $('<p></p>').append('&times;').addClass('close-quick-view');
                 const $quickViewDescription = $('<h2></h2>').text(product.description).addClass('cart-description');
@@ -94,15 +86,17 @@ $(function () {
                 const $quickViewprice = $('<p></p>').text(product.price).addClass('quick-view-price');
                 const $addToCartBtn = $('<button></button>').text('ADD TO CART').addClass('add-to-cart-btn');
                 const $buyNowBtn = $('<button></button>').text('BUY NOW').addClass('buy-now-btn');
-                const $viewMoreBtn = $('<button></button>').text('VIEW MORE').addClass('view-more-btn');
+                const $viewMoreBtn = $('<button></button>').text('MORE DETAILS').addClass('view-more-btn');
 
                 $quickViewInfo.append($closeQuickView, $quickViewDescription, $numberOfOrders, $quickViewprice, $addToCartBtn, $buyNowBtn, $viewMoreBtn);
                 $quickView.append($quickViewImage, $quickViewInfo);
                 $quickViewOverlay.append($quickView);
                 $('body').append($quickViewOverlay);
                 $quickViewOverlay.css('display', 'flex');
+                $('body').css('overflow', 'hidden');
                 $closeQuickView.on('click', () => {
                   $quickViewOverlay.css('display', 'none');
+                  $('body').css('overflow', 'scroll');
                 });
                 const $productInfo = {
                   description: product.description,
@@ -113,7 +107,18 @@ $(function () {
                 $viewMoreBtn.on('click', () => {
                   const url = `quick-view.html?product=${$encodedProductInfo}`;
                   window.location.href = url;
-                })
+                });
+                $addToCartBtn.on('click', () => {
+                  const descriptionToAddToCart = $quickViewDescription.text();
+                  const imageToAddToCart = $quickViewImage.attr('src');
+                  const priceToAddToCart = $quickViewprice.text();
+                  const info = {
+                    description: descriptionToAddToCart,
+                    image: imageToAddToCart,
+                    price: priceToAddToCart
+                  }
+                  localStorage.setItem(descriptionToAddToCart, JSON.stringify(info));
+                });
               });
           });
       },
@@ -217,6 +222,30 @@ function closeSearchForm() {
 function showCart() {
   $('.cartOverlay').css('display', 'flex');
   $('body').css('overflow', 'hidden');
+  Object.keys(localStorage).forEach((key) => {
+    const value = localStorage.getItem(key);
+    try {
+      const product = JSON.parse(value);
+      const $cartItemContainer = $('.cart-item-container');
+      const $imageAndDescriptionDiv = $('<div></div>').addClass('image-and-description-div');
+      const $image = $('<img>').attr('src', (product.image));
+      const $cartDescription = $('<p></p>').text(product.description).addClass('cart-description');
+      const $quantityAndPriceDiv = $('<div></div>').addClass('quantity-and-price-div');
+      const $cartPrice = $('<p></p>').text(product.price).addClass('cart-price');
+      const $quantitySelectorDiv = $('<div></div>').addClass('quantity-selector-div');
+      const $plusBtn = $('<button></button>').text('+').addClass('plus-btn');
+      const $quantitySelector = $('<input>').attr({'type': 'text', 'value': '1'}).addClass('quantity-selector');
+      const $minusBtn = $('<button></button>').text('-').addClass('minus-btn');
+      const $cartSlideBar = $('.cartSlideBar');
+      $imageAndDescriptionDiv.append($image, $cartDescription);
+      $quantitySelectorDiv.append($plusBtn, $quantitySelector, $minusBtn);
+      $quantityAndPriceDiv.append($cartPrice, $quantitySelectorDiv);
+      $cartItemContainer.append($imageAndDescriptionDiv, $quantityAndPriceDiv);
+      $cartSlideBar.append($cartItemContainer);
+    } catch (e) {
+      console.log(`Key: ${key}, Value: ${value}`);
+    }
+  });
 }
 
 function closeCart() {
