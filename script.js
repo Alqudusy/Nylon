@@ -123,7 +123,7 @@ $(function () {
           });
       },
       error: function (xhr, status, error) {
-          alert(`Please check your internet connection ${error}`);
+          alert(`Please check your internet connection ${status}`);
       }
   });
 });
@@ -135,10 +135,8 @@ $(window).on("scroll", function() {
     const navbar = $(".nav-bar");
   
     if (currentScrollY >= headerHeight) {
-      // The header is out of view, make nav sticky
       navbar.addClass("sticky");
     } else {
-      // The header is still in view, remove sticky behavior
       navbar.removeClass("sticky");
     }
 });
@@ -219,9 +217,17 @@ function closeSearchForm() {
   });
 }
 
+const convertValueToNumber = (value) => {
+  const cleanedValue = value.replace(/[^0-9.]/g, '');
+  return parseFloat(cleanedValue);
+}
+
 function showCart() {
   $('.cartOverlay').css('display', 'flex');
   $('body').css('overflow', 'hidden');
+
+  let subTotalValue = 0; // Initialize subtotal value
+
   Object.keys(localStorage).forEach((key) => {
     const value = localStorage.getItem(key);
     try {
@@ -242,6 +248,38 @@ function showCart() {
       $quantityAndPriceDiv.append($cartPrice, $quantitySelectorDiv);
       $cartItemContainer.append($imageAndDescriptionDiv, $quantityAndPriceDiv);
       $cartSlideBar.append($cartItemContainer);
+
+      // Function to update subtotal
+      function updateSubtotal() {
+        const quantity = parseInt($quantitySelector.val(), 10);
+        const price = parseFloat($cartPrice.text().replace('$', ''));
+        const itemTotal = quantity * price;
+        subTotalValue += itemTotal;
+
+        // Update subtotal display
+        $('.subtotal').text(`$${subTotalValue.toFixed(2)}`);
+      }
+
+      // Initialize subtotal
+      updateSubtotal();
+
+      // Event listeners for buttons
+      $plusBtn.on('click', () => {
+        let quantity = parseInt($quantitySelector.val(), 10);
+        quantity += 1;
+        $quantitySelector.val(quantity);
+        updateSubtotal();
+      });
+
+      $minusBtn.on('click', () => {
+        let quantity = parseInt($quantitySelector.val(), 10);
+        if (quantity > 1) {
+          quantity -= 1;
+          $quantitySelector.val(quantity);
+          updateSubtotal();
+        }
+      });
+
     } catch (e) {
       console.log(`Key: ${key}, Value: ${value}`);
     }
