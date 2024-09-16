@@ -146,6 +146,21 @@
         document.querySelector('meta[property="og:description"]').setAttribute("content", product.description);
         document.querySelector('meta[name="twitter:description"]').setAttribute("content", product.description);
     }
+    document.querySelector('.add-to-cart-btn').addEventListener('click', () => {
+        const descriptionToAddToCart = document.querySelector('.quickview-description').innerText;
+        const imageToAddToCart = $('.image').attr('src');
+        const priceToAddToCart = $('.quick-view-price').text();
+        const info = {
+            description: descriptionToAddToCart,
+            image: imageToAddToCart,
+            price: priceToAddToCart
+        }
+        localStorage.setItem(descriptionToAddToCart, JSON.stringify(info));
+        showMessage('Product Added to cart');
+    });
+    document.querySelector('.buy-now-btn').addEventListener('click', () => {
+        alert('You have successfully purchase this product');
+    })
 </script>
 </body>
 </html>

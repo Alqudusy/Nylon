@@ -118,6 +118,10 @@ $(function () {
                     price: priceToAddToCart
                   }
                   localStorage.setItem(descriptionToAddToCart, JSON.stringify(info));
+                  showMessage('Product Added to cart');
+                });
+                $buyNowBtn.on('click', () => {
+                  alert('You have successfully purchase this product');
                 });
               });
           });
@@ -314,3 +318,14 @@ $(document).on('input', '#search-field', function () {
   const searchQuery = $(this).val();
   filterProducts(searchQuery);
 });
+
+function showMessage(message) {
+  alert(message);
+}
+
+document.querySelector('.checkout-btn').addEventListener('click', () => {
+  document.querySelector('.cart-item-container').style.display = 'none';
+  document.querySelector('.subtotal').innerText = '$0';
+  localStorage.clear();
+  showMessage('You have successfully checked out');
+})
