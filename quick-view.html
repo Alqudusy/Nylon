@@ -3,8 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nylon | Buy your quality and affordable nylon</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta property="og:title" content="Nylon || Affordable & Stylish Nylon Bags for All Occasions" />
+    <meta property="og:description" content="Discover high-quality, eco-friendly nylon bags at unbeatable prices. Shop stylish tote bags, durable shopping bags, and more!" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://alqudusy.github.io/Nylon/" />
+    <meta property="og:image" content="https://alqudusy.github.io/Nylon/logo2-removebg-preview.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@alqudusy22" />
+    <meta name="twitter:title" content="Nylon || Affordable & Stylish Nylon Bags for All Occasions" />
+    <meta name="twitter:description" content="Discover high-quality, eco-friendly nylon bags at unbeatable prices. Shop stylish tote bags, durable shopping bags, and more!" />
+    <meta name="twitter:image" content="https://alqudusy.github.io/Nylon/logo2-removebg-preview.png" />    
+    <meta name="robots" content="index, follow" />
+    <meta property="og:site_name" content="Nylon" />    
+    <title>Nylon || Shop Quality Nylon Tote & Shopping Bags</title>
+    <meta name="description" content="Discover high-quality, affordable nylon bags for every occasion. Shop eco-friendly tote bags, stylish shopping bags, and more at unbeatable prices. Buy nylon bags online today and enjoy fast shipping!">
+    <link rel="stylesheet" href="styles.css"/>
     <link rel="stylesheet" href="quick-veiw-page.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
@@ -47,10 +60,10 @@
     </div>
     <div class="cartOverlay">
         <div class="cartSlideBar">
-            <!-- <div class="cart-item-container">
-                <h2 style="text-align: left; color: whitesmoke;">Cart Items</h2>
-                <button class="close-cart">&times;</button>
-                <div class="image-and-description-div">
+            <button class="close-cart">&times;</button>
+            <h2 style="text-align: left; color: whitesmoke;">Cart Items</h2>
+            <div class="cart-item-container">
+                <!-- <div class="image-and-description-div">
                     <img src="https://img.freepik.com/free-vector/blank-t-shirt-plastic-bag-polyethylene-packet-with-handles-grocery-shop_1441-3058.jpg?size=626&ext=jpg&ga=GA1.1.431064424.1722609348&semt=ais_hybrid" alt="cart-product">
                     <p class="cart-description">Nylon Bag - Durable and lightweight, suitable for all occasions. This bag is perfect for carrying everyday essentials.</p>
                 </div>
@@ -61,16 +74,16 @@
                         <input type="text" class="quantity-selector" value="1">
                         <button class="minus-btn">-</button>
                     </div>
-                </div>
+                </div> -->
             </div>
             <div class="subtotal-container">
                 <div class="subtotal-div">
                     <p>SUBTOTAL</p>
-                    <p>$14</p>
+                    <p class="subtotal">$0</p>
                 </div>
                 <P class="info">Shipping, taxes, and discount codes calculated at checkout.</P>
                 <button class="checkout-btn">CHECKOUT</button>
-            </div> -->
+            </div>
         </div>
     </div>
     <div class="quick-veiw-container">
@@ -123,13 +136,15 @@
     const productData = queryParams.get('product');
     if (productData) {
         const product = JSON.parse(decodeURIComponent(productData));
-        const $product = JSON.parse(decodeURIComponent(productData));
         const productImage = document.querySelector('.image');
         productImage.src = product.image;
         const productDescription = document.querySelector('.quickview-description');
         productDescription.innerText = product.description;
         const productPrice = document.querySelector('.quick-view-price');
         productPrice.innerText = product.price;
+        document.querySelector('meta[name="description"]').setAttribute("content", product.description);
+        document.querySelector('meta[property="og:description"]').setAttribute("content", product.description);
+        document.querySelector('meta[name="twitter:description"]').setAttribute("content", product.description);
     }
 </script>
 </body>

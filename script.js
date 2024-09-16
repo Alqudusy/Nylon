@@ -215,6 +215,10 @@ function closeSearchForm() {
   $searchIcon.on('click', function () {
     showSearchForm();
   });
+  const $cartIcon = $('.nav-bar .cart-icon');
+  $cartIcon.on('click', () => {
+    showCart();
+  });
 }
 
 const convertValueToNumber = (value) => {
@@ -226,7 +230,7 @@ function showCart() {
   $('.cartOverlay').css('display', 'flex');
   $('body').css('overflow', 'hidden');
 
-  let subTotalValue = 0; // Initialize subtotal value
+  let subTotalValue = 0;
 
   Object.keys(localStorage).forEach((key) => {
     const value = localStorage.getItem(key);
@@ -249,21 +253,17 @@ function showCart() {
       $cartItemContainer.append($imageAndDescriptionDiv, $quantityAndPriceDiv);
       $cartSlideBar.append($cartItemContainer);
 
-      // Function to update subtotal
       function updateSubtotal() {
         const quantity = parseInt($quantitySelector.val(), 10);
         const price = parseFloat($cartPrice.text().replace('$', ''));
         const itemTotal = quantity * price;
         subTotalValue += itemTotal;
 
-        // Update subtotal display
         $('.subtotal').text(`$${subTotalValue.toFixed(2)}`);
       }
 
-      // Initialize subtotal
       updateSubtotal();
 
-      // Event listeners for buttons
       $plusBtn.on('click', () => {
         let quantity = parseInt($quantitySelector.val(), 10);
         quantity += 1;
@@ -297,4 +297,20 @@ $('.cart-icon').on('click', () => {
 
 $('.close-cart').on('click', () => {
   closeCart();
+});
+
+function filterProducts(searchQuery) {
+  $('.product').each(function () {
+    const description = $(this).find('.description').text().toLowerCase();
+    if (description.includes(searchQuery.toLowerCase())) {
+      $(this).show();
+    } else {
+      $(this).hide();
+    }
+  });
+}
+
+$(document).on('input', '#search-field', function () {
+  const searchQuery = $(this).val();
+  filterProducts(searchQuery);
 });

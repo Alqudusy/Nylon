@@ -124,7 +124,7 @@ li a {
 }
 
 li a:hover {
-    border-bottom: 2px solid white;
+    border-bottom: 2px solid #1a2d85;
 }
 
 .nav-bar .logo-container {
@@ -433,6 +433,42 @@ footer .form-div {
     .view-more-btn {
         margin-top: 0.5rem !important;
     }
+
+    .cart-item-container {
+        height: 60% !important;
+    }
+}
+
+@media (max-width: 320px) {
+    .quick-view img {
+        height: 30% !important;
+    }
+
+    .quick-view h2 {
+        font-size: 20px !important;
+    }
+
+    .quick-view-overlay {
+        padding: 0 !important;
+    }
+}
+
+@media (max-width: 375px) {
+    .quick-view img {
+        height: 40% !important;
+    }
+
+    .quick-view h2 {
+        font-size: 20px !important;
+    }
+
+    .quick-view-overlay {
+        padding: 0 !important;
+    }
+
+    .cart-item-container {
+        height: 50% !important;
+    }
 }
 
 .cartOverlay {
@@ -452,7 +488,7 @@ footer .form-div {
 
 .cart-item-container {
     flex-wrap: wrap;
-    height: 65%;
+    height: 60%;
     overflow-y: scroll;
 }
 
@@ -636,6 +672,21 @@ footer .form-div {
 
     .subtotal-container {
         width: 90% !important;
+    }
+    .cart-item-container {
+        height: 55% !important;
+    }
+}
+
+@media (max-width: 420px) {
+    .cart-item-container {
+        height: 50% !important;
+    }
+}
+
+@media (max-width: 600px) {
+    .cart-item-container {
+        height: 50% !important;
     }
 }
 

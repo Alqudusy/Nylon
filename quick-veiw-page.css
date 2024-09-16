@@ -4,7 +4,7 @@
     text-align: left;
     margin: auto;
     display: flex;
-    padding: 2rem;
+    padding: 2rem 0rem;
 }
 
 .quickview-description {
@@ -20,8 +20,8 @@
     box-sizing: border-box !important;
 }
 
-section img {
-    width: 30rem;
+.quick-veiw-container img {
+    width: 50% !important;
     height: 30rem;
     float: left;
 }
@@ -47,6 +47,7 @@ section img {
 
     .quick-veiw-container img {
         height: 50%;
+        width: 100% !important;
     }
 
     .number-of-orders, .quick-view-price {
