@@ -119,6 +119,7 @@ $(function () {
                   }
                   localStorage.setItem(descriptionToAddToCart, JSON.stringify(info));
                   showMessage('Product Added to cart');
+                  showCart();
                 });
                 $buyNowBtn.on('click', () => {
                   alert('You have successfully purchase this product');
@@ -234,49 +235,50 @@ function showCart() {
   $('.cartOverlay').css('display', 'flex');
   $('body').css('overflow', 'hidden');
 
-  let subTotalValue = 0;
+  function updateSubtotal() {
+    let newSubTotal = 0;
+    $('.cart-item-container').find('.quantity-and-price-div').each(function () {
+      const $quantitySelector = $(this).find('.quantity-selector');
+      const $cartPrice = $(this).find('.cart-price');
+      const quantity = parseFloat($quantitySelector.val());
+      const price = parseFloat($cartPrice.text().replace('$', ''));
+      const itemTotal = quantity * price;
+      newSubTotal += itemTotal;
+    });
+    $('.subtotal').text(`$${newSubTotal.toFixed(2)}`);
+  }
+
+  const $cartItemContainer = $('.cart-item-container');
+  $cartItemContainer.empty();
 
   Object.keys(localStorage).forEach((key) => {
     const value = localStorage.getItem(key);
     try {
       const product = JSON.parse(value);
-      const $cartItemContainer = $('.cart-item-container');
       const $imageAndDescriptionDiv = $('<div></div>').addClass('image-and-description-div');
-      const $image = $('<img>').attr('src', (product.image));
+      const $image = $('<img>').attr('src', product.image).addClass('image');
       const $cartDescription = $('<p></p>').text(product.description).addClass('cart-description');
       const $quantityAndPriceDiv = $('<div></div>').addClass('quantity-and-price-div');
       const $cartPrice = $('<p></p>').text(product.price).addClass('cart-price');
       const $quantitySelectorDiv = $('<div></div>').addClass('quantity-selector-div');
       const $plusBtn = $('<button></button>').text('+').addClass('plus-btn');
-      const $quantitySelector = $('<input>').attr({'type': 'text', 'value': '1'}).addClass('quantity-selector');
+      const $quantitySelector = $('<input>').attr({ 'type': 'text', 'value': '1' }).addClass('quantity-selector');
       const $minusBtn = $('<button></button>').text('-').addClass('minus-btn');
-      const $cartSlideBar = $('.cartSlideBar');
+
       $imageAndDescriptionDiv.append($image, $cartDescription);
-      $quantitySelectorDiv.append($plusBtn, $quantitySelector, $minusBtn);
+      $quantitySelectorDiv.append($minusBtn, $quantitySelector, $plusBtn);
       $quantityAndPriceDiv.append($cartPrice, $quantitySelectorDiv);
       $cartItemContainer.append($imageAndDescriptionDiv, $quantityAndPriceDiv);
-      $cartSlideBar.append($cartItemContainer);
-
-      function updateSubtotal() {
-        const quantity = parseInt($quantitySelector.val(), 10);
-        const price = parseFloat($cartPrice.text().replace('$', ''));
-        const itemTotal = quantity * price;
-        subTotalValue += itemTotal;
-
-        $('.subtotal').text(`$${subTotalValue.toFixed(2)}`);
-      }
-
-      updateSubtotal();
 
       $plusBtn.on('click', () => {
-        let quantity = parseInt($quantitySelector.val(), 10);
+        let quantity = parseFloat($quantitySelector.val());
         quantity += 1;
         $quantitySelector.val(quantity);
         updateSubtotal();
       });
 
       $minusBtn.on('click', () => {
-        let quantity = parseInt($quantitySelector.val(), 10);
+        let quantity = parseFloat($quantitySelector.val());
         if (quantity > 1) {
           quantity -= 1;
           $quantitySelector.val(quantity);
@@ -288,7 +290,10 @@ function showCart() {
       console.log(`Key: ${key}, Value: ${value}`);
     }
   });
+
+  updateSubtotal();
 }
+
 
 function closeCart() {
   $('.cartOverlay').css('display', 'none');
@@ -324,8 +329,18 @@ function showMessage(message) {
 }
 
 document.querySelector('.checkout-btn').addEventListener('click', () => {
-  document.querySelector('.cart-item-container').style.display = 'none';
+  document.querySelector('.cart-item-container').innerHTML = '';
   document.querySelector('.subtotal').innerText = '$0';
+  
   localStorage.clear();
+
+  closeCart();
+  
   showMessage('You have successfully checked out');
-})
+});
+
+if (window.location.href.includes('index.html')) {
+  document.querySelector('.veiw-all-button').addEventListener('click', () => {
+    window.location.href = 'products.html';
+  })
+}
