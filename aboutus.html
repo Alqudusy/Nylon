@@ -19,6 +19,7 @@
     <meta name="description" content="Learn about our mission to offer eco-friendly nylon bags and our commitment to delivering quality products at affordable prices. Explore the journey of Nylon.">
     <link rel="stylesheet" href="styles.css"/>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
@@ -33,13 +34,13 @@
             <li><a href="contactus.html" style="color: black;">CONTACT US</a></li>
         </ul>
         <div class="cart-and-search-div">
-            <img src="pngwing.com (6).png" alt="search" class="search-icon" style="cursor: pointer;">
+            <i class="fa-solid fa-magnifying-glass" id="search-icon" style="cursor: pointer; color: black; font-size: 25px;"></i>
             <div class="harmburger-icon">
                 <span></span>
                 <span></span>
                 <span></span>
             </div>
-            <img src="pngwing.com (5).png" alt="cart" width="0.005" class="cart-icon" style="cursor: pointer;">
+            <i class="fa-solid fa-cart-shopping" alt="cart" width="0.005" id="cart-icon" style="cursor: pointer; color: black; font-size: 25px;"></i>
         </div>
     </nav>
     <div class="overlay">
@@ -52,8 +53,8 @@
                 <li><a href="contactus.html">CONTACT US</a></li>
             </ul>
             <div class="social">
-                <a href="#"><img src="pngwing.com (1).png" alt="Facebook" width="50"></a>
-                <a href="#"><img src="pngwing.com (2).png" alt="Whatsapp" width="50"></a>
+                <i class="fa-brands fa-facebook" style="color: black; font-size: 40px; margin: 0.5rem;"></i>
+                <i class="fa-brands fa-whatsapp" style="color: black; font-size: 40px; margin: 0.5rem;"></i>
             </div>
         </div>
     </div>
@@ -62,18 +63,6 @@
             <button class="close-cart">&times;</button>
             <h2 style="text-align: left; color: whitesmoke;">Cart Items</h2>
             <div class="cart-item-container">
-                <!-- <div class="image-and-description-div">
-                    <img src="https://img.freepik.com/free-vector/blank-t-shirt-plastic-bag-polyethylene-packet-with-handles-grocery-shop_1441-3058.jpg?size=626&ext=jpg&ga=GA1.1.431064424.1722609348&semt=ais_hybrid" alt="cart-product">
-                    <p class="cart-description">Nylon Bag - Durable and lightweight, suitable for all occasions. This bag is perfect for carrying everyday essentials.</p>
-                </div>
-                <div class="quantity-and-price-div">
-                    <p class="cart-price">Price: $20</p>
-                    <div class="quantity-selector-div">
-                        <button class="plus-btn">+</button>
-                        <input type="text" class="quantity-selector" value="1">
-                        <button class="minus-btn">-</button>
-                    </div>
-                </div> -->
             </div>
             <div class="subtotal-container">
                 <div class="subtotal-div">
@@ -85,20 +74,6 @@
             </div>
         </div>
     </div>
-    <!-- <div class="quick-view-overlay">
-        <div class="quick-view">
-            <img class="selected-product-img" src="https://img.freepik.com/free-vector/blank-t-shirt-plastic-bag-polyethylene-packet-with-handles-grocery-shop_1441-3058.jpg?size=626&ext=jpg&ga=GA1.1.431064424.1722609348&semt=ais_hybrid" alt="cart">
-            <div class="quick-view-info">
-                <p class="close-quick-view">&times;</p>
-                <h2 class="cart-description">Nylon Bag - Durable and lightweight, suitable for all occasions. This bag is perfect for carrying everyday essentials.</h2>
-                <p class="numbers-of-orders">36 orders</p>
-                <p class="quick-veiw-price">$43</p>
-                <button class="add-to-cart-btn">ADD TO CART</button>
-                <button class="buy-now-btn">BUY NOW</button>
-                <button class="view-more-btn">VIEW MORE</button>
-            </div>
-        </div>
-    </div> -->
     <div class="about-section" style="padding: 50px !important; background-color: white !important; margin: 30px auto !important; max-width: 1200px !important; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important; border-radius: 10px !important;">
         <h1 style="font-size: 2.5rem !important; margin-bottom: 20px !important; color: rgb(7, 35, 112) !important;">About Nylon</h1>
         <p style="font-size: 1.2rem !important; margin-bottom: 20px !important; line-height: 1.6 !important;">At Nylon, we believe in providing high-quality, eco-friendly nylon bags that suit every occasion. We started this journey to meet the needs of people seeking stylish yet sustainable bags.</p>
@@ -126,8 +101,8 @@
                 <input type="email" name="email" class="email" placeholder="Enter your email">
                 <button type="submit" class="footer-subscribe-button">Subscribe</button>
             </div class="form-div">
-            <img src="pngwing.com (1).png" alt="" width="50" style="margin-top: 1rem;">
-            <img src="pngwing.com (2).png" alt="" width="50" style="margin-top: 1rem;">
+            <i class="fa-brands fa-facebook" style="color: black; font-size: 40px; margin: 0.5rem;"></i>
+            <i class="fa-brands fa-whatsapp" style="color: black; font-size: 40px; margin: 0.5rem;"></i>
         </div>
         <section style="margin-top: 20rem;">
             <p style="text-align: center !important;">&copy; 2024 Copyright <a href="#">Alqudusy</a></p>

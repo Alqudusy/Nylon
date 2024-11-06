@@ -156,7 +156,7 @@ $('.close-menu').click(function () {
 
 const $originalNavBar = $('.nav-bar').clone(true);
 
-$('.search-icon').click(function () {
+$('#search-icon').click(function () {
   showSearchForm();
 });
 
@@ -175,10 +175,10 @@ function showSearchForm() {
   const $cartandsearchdiv = $('.cart-and-search-div');
   const $cartandsearchdivStyle = $cartandsearchdiv.attr('style');
 
-  const $image = $('<img>').attr('src', 'pngwing.com (6).png');
+  const $image = $('<i></i>').attr('class', 'fa-solid fa-magnifying-glass');
   $image.attr('style', $logoStyle);
   $image.attr('width', '30');
-  $image.css('margin-top', '1rem');
+  $image.css({'margin-top': '1rem', 'color': 'black', 'font-size': '25px'});
 
   const $searchField = $('<input>').attr('type', 'text');
   $searchField.attr({
@@ -195,13 +195,14 @@ function showSearchForm() {
   });
 
   const $cancelButton = $('<p>').append('&times;');
-  $cancelButton.attr('class', 'cancel-button');
+  $cancelButton.attr('id', 'cancel-button');
   $cancelButton.css({
     'width': '10%',
     'text-align': 'center',
     'margin': '0',
     'font-size': '50px',
-    'cursor': 'pointer'
+    'cursor': 'pointer',
+    'color': 'black'
   });
 
   $cancelButton.on('click', () => {
@@ -216,7 +217,7 @@ function showSearchForm() {
 function closeSearchForm() {
   $('.nav-bar').replaceWith($originalNavBar.clone(true));
 
-  const $searchIcon = $('.nav-bar .search-icon');
+  const $searchIcon = $('.nav-bar #search-icon');
   $searchIcon.on('click', function () {
     showSearchForm();
   });
@@ -300,7 +301,7 @@ function closeCart() {
   $('body').css('overflow', '');
 }
 
-$('.cart-icon').on('click', () => {
+$('#cart-icon').on('click', () => {
   showCart();
 });
 
